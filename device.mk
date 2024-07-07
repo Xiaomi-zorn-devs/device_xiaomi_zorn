@@ -147,6 +147,9 @@ PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.memtrack-service
 
+#Media
+PRODUCT_PACKAGES += \
+    libcodec2_hidl_shim
 
 # Network
 PRODUCT_COPY_FILES += \
