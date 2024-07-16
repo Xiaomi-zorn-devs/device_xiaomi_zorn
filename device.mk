@@ -268,6 +268,10 @@ PRODUCT_PACKAGES += \
     WifiOverlayZorn \
     WifiOverlayZornCN
 
+# Parts
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # Partitions
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
