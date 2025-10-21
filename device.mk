@@ -172,8 +172,11 @@ PRODUCT_PACKAGES += \
     FrameworkOverlayZorn \
     FrameworkOverlayZornGL \
     SettingsOverlayZorn \
+    SettingsProviderOverlayZorn \
+    SettingsProviderOverlayZornCN \
     SecureElementOverlayZorn \
-    WifiOverlayZorn
+    WifiOverlayZorn \
+    WifiOverlayZornCN
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
