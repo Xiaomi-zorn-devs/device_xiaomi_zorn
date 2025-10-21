@@ -127,11 +127,10 @@ TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
-<<<<<<< HEAD
 TARGET_BOARD_PLATFORM := pineapple
-=======
-TARGET_BOARD_PLATFORM := sun
 
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
->>>>>>> 5bdd2b7 (onyx: Setup kernel args)
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+TARGET_USERIMAGES_USE_F2FS := true
