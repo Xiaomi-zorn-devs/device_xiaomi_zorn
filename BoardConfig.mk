@@ -134,6 +134,10 @@ TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := pineapple
 
+# Properties
+TARGET_ODM_PROP += $(DEVICE_PATH)/properties/odm.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
+
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
@@ -142,6 +146,9 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 # Sepolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
+
+# Vendor security patch
+VENDOR_SECURITY_PATCH := 2025-09-01
 
 # Verified Boot
 BOARD_AVB_ENABLE := true

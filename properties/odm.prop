@@ -1,3 +1,6 @@
+# Order
+ro.product.property_source_order=odm,vendor,product,system_ext,system
+
 # Audio
 audio.spatializer.pose_predictor_type=2
 audio.spatializer.prediction_duration_ms=50
@@ -298,3 +301,5 @@ vendor.gpp.create_frc_extension=1
 vendor.wallpaper.color.flag=BK
 vendor.wv.oemcrypto.debug.enable_prov40=true
 
+# SKU
+import /odm/etc/odm_${ro.boot.hwc}.prop
