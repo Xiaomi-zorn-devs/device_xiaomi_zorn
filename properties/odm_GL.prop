@@ -1,2 +1,4 @@
+bluetooth.device.default_name=POCO F7 Pro
 ro.product.odm.model=25053PC47G
 ro.product.odm.name=zorn_global
+vendor.usb.product_string=POCO F& Pro

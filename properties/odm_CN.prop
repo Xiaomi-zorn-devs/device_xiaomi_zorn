@@ -1,3 +1,5 @@
+bluetooth.device.default_name=POCO F7 Pro
 ro.product.odm.brand=Redmi
 ro.product.odm.model=25053RT47C
 ro.product.odm.name=zorn
+vendor.usb.product_string=POCO F& Pro
