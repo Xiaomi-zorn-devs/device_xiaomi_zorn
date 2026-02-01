@@ -180,7 +180,6 @@ ro.miui.support_audiorecord_compress=true
 ro.miui.support_submix_multichannel=true
 ro.postinstall.fstab.prefix=/system
 ro.product.property_source_order=odm,vendor,product,system_ext,system
-ro.system.build.version.sdk_full=36.0
 ro.vendor.qti.va_aosp.support=1
 ro.vendor.use_data_netmgrd=true
 security.perf_harden=1
