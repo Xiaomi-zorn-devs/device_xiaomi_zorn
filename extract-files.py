@@ -9,6 +9,7 @@ from extract_utils.fixups_blob import (
     blob_fixups_user_type,
 )
 from extract_utils.fixups_lib import (
+    lib_fixup_remove,
     lib_fixups,
     lib_fixups_user_type,
 )
@@ -18,6 +19,13 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
+    'hardware/qcom-caf/sm8650',
+    'hardware/qcom-caf/wlan',
+    'hardware/xiaomi',
+    'vendor/qcom/opensource/commonsys/display',
+    'vendor/qcom/opensource/commonsys-intf/display',
+    'vendor/qcom/opensource/dataservices',
+    'vendor/qcom/opensource/display',
 ]
 
 
@@ -27,19 +35,132 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
+    (
+        'vendor.qti.diaghal@1.0',
+        'vendor.qti.imsrtpservice@3.0',
+        'vendor.qti.imsrtpservice@3.1',
+        'vendor.qti.ImsRtpService-V1-ndk'
+    ): lib_fixup_vendor_suffix,
+    (
+    'android.hardware.graphics.allocator-V1-ndk',
+        'android.hardware.graphics.composer3-V2-ndk',
+        'libmilut',
+        'libmips',
+        'libmisr',
+        'libwpa_client',
+        'vendor.qti.hardware.display.composer3-V1-ndk',
+    ): lib_fixup_remove,
 }
-
-
 blob_fixups: blob_fixups_user_type = {
+    (
+        'vendor/bin/hw/vendor.qti.media.c2@1.0-service',
+        'vendor/bin/hw/vendor.dolby.media.c2@1.0-service',
+        'vendor/bin/hw/vendor.qti.media.c2audio@1.0-service'
+    ): blob_fixup()
+        .add_needed('libshim.so'),
+    (
+        'vendor/etc/media_codecs_pinaepple.xml', 
+        'vendor/etc/media_codecs_pinaepple_vendor.xml'
+    ): blob_fixup()
+        .regex_replace('.*media_codecs_(google_audio|google_c2|google_telephony|google_video|vendor_audio).*\n', ''),
+    'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
+        .add_needed('libhidlbase_shim.so')
+        .add_needed('libbinder_shim.so'),
+    (
+        'vendor/lib64/libqcc_sdk.so', 
+        'vendor/lib64/libqms_xiaomi.so',
+        'vendor/lib64/libqms_client.so',
+        'vendor/bin/qcc-vendor',
+        'vendor/bin/xtra-daemon',
+        'vendor/bin/qms',
+        'vendor/bin/cnd',
+    ): blob_fixup()
+        .add_needed('libbinder_shim.so'),
+    (
+        'vendor/lib64/libdlbdsservice.so',
+        'vendor/lib64/libdlbpreg.so',
+        'vendor/lib64/soundfx/libdlbvol.so',
+        'vendor/lib64/soundfx/libhwdap.so',
+    ): blob_fixup()
+        .add_needed('libstagefright_foundation-v33.so'),
+    'vendor/lib64/libqcodec2_core.so': blob_fixup()
+        .add_needed('libcodec2_shim.so'),
+    
+    (
+        'odm/bin/hw/vendor.xiaomi.hw.touchfeature-service',
+        'odm/lib64/libadaptivehdr.so',
+        'odm/lib64/libcolortempmode.so',
+        'odm/lib64/libdither.so',
+        'odm/lib64/libflatmode.so',
+        'odm/lib64/libhistprocess.so',
+        'odm/lib64/libmiBrightness.so',
+        'odm/lib64/libmiSensorCtrl.so',
+        'odm/lib64/libpaperMode.so',
+        'odm/lib64/librhytheyecare.so',
+        'odm/lib64/libsdr2hdr.so',
+        'odm/lib64/libsre.so',
+        'odm/lib64/libtruetone.so',
+        'odm/lib64/libvideomode.so',
+        'vendor/lib64/hw/camera.qcom.so',
+        'vendor/lib64/libgnss.so',
+    ): blob_fixup()
+        .replace_needed(
+            'android.hardware.sensors-V2-ndk.so',
+            'android.hardware.sensors-V3-ndk.so',
+    ),
+    'odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl': blob_fixup()
+        .replace_needed(
+            'android.hardware.graphics.common-V5-ndk.so',
+            'android.hardware.graphics.common-V6-ndk.so'
+        )
+        .replace_needed(
+            'android.hardware.sensors-V2-ndk.so',
+            'android.hardware.sensors-V3-ndk.so'
+    ),
+
+    (
+        'vendor/lib64/camera/components/com.qti.node.dewarp.so',
+        'vendor/lib64/hw/com.qti.chi.override.so',
+        'vendor/lib64/libcamximageformatutils.so',
+        'vendor/lib64/libchifeature2.so',
+        'vendor/lib64/libqvrservice.so',
+        'vendor/lib64/vendor.qti.hardware.camera.offlinecamera-service-impl.so',
+    ): blob_fixup()
+        .replace_needed(
+            'android.hardware.graphics.allocator-V1-ndk.so',
+            'android.hardware.graphics.allocator-V2-ndk.so',
+    ),
+
+    'vendor/lib64/libcameraopt.so': blob_fixup()
+        .add_needed('libprocessgroup_shim.so'),
+
+    'vendor/lib64/libqcodec2_core.so': blob_fixup()
+        .add_needed('libcodec2_shim.so')
+        .replace_needed(
+            'android.hardware.graphics.common-V5-ndk.so',
+            'android.hardware.graphics.common-V6-ndk.so'
+    ),
+
+    'vendor/lib64/libwfdmmsrc_proprietary.so': blob_fixup()
+        .replace_needed(
+            'android.media.audio.common.types-V2-ndk.so',
+            'android.media.audio.common.types-V3-ndk.so',
+    ),
+
+    'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
+        .add_needed('libhidlbase_shim.so'),
 }  # fmt: skip
 
 
+
+
 module = ExtractUtilsModule(
-    'onyx',
+    'zorn',
     'xiaomi',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
+    check_elf=True,
 )
 
 if __name__ == '__main__':
