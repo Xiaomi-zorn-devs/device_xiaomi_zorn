@@ -109,6 +109,10 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
     android.hardware.health-service.qti_recovery
 
+# Hypsy
+PRODUCT_PACKAGES += \
+    xiaomi.system.hypsys.common-service
+
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
