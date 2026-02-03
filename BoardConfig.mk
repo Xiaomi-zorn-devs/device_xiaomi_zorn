@@ -60,6 +60,9 @@ TARGET_BOOTLOADER_BOARD_NAME := pineapple
 # Display
 TARGET_SCREEN_DENSITY := 480
 
+# Init
+TARGET_RECOVERY_DEVICE_MODULES := libinit_xiaomi_8650
+
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
