@@ -47,6 +47,8 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
 
+PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := lz4
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.core.sounddose-V1-ndk.vendor \
