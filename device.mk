@@ -60,10 +60,36 @@ SOONG_CONFIG_android_hardware_audio += \
 SOONG_CONFIG_android_hardware_audio_run_64bit := true
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio.core.sounddose-V1-ndk.vendor \
-    libalsautilsv2.vendor \
-    libaudio_aidl_conversion_common_ndk.vendor \
-    libmediautils_vendor.vendor
+    android.hardware.audio@7.1-impl \
+    android.hardware.audio.effect@7.0-impl \
+    android.hardware.audio.service \
+    android.hardware.soundtrigger@2.3-impl
+
+PRODUCT_PACKAGES += \
+    audio.primary.pineapple \
+    audio.r_submix.default \
+    audio.usb.default \
+    sound_trigger.primary.pineapple
+
+PRODUCT_PACKAGES += \
+    audioadsprpcd \
+    libagm_compress_plugin \
+    libagm_mixer_plugin \
+    libagm_pcm_plugin \
+    libagmclient \
+    libbatterylistener \
+    libpalclient \
+    libqcompostprocbundle \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    libsndcardparser \
+    libvolumelistener \
+    libhfp_pal \
+    libhotword_intf \
+    libfmpal \
+    vendor.qti.hardware.AGMIPC@1.0-impl
+
+AUDIO_HAL_DIR := hardware/qcom-caf/sm8650/audio/primary-hal
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
