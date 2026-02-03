@@ -1,7 +1,13 @@
+//
+// Copyright (C) 2022 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
 prebuilt_etc {
     name: "fstab.qcom",
     src: "etc/fstab.qcom",
     vendor: true,
+    vendor_ramdisk_available: true,
 }
 
 prebuilt_etc {
@@ -9,4 +15,25 @@ prebuilt_etc {
     src: "etc/init.recovery.qcom.rc",
     sub_dir: "init",
     recovery: true,
+}
+
+prebuilt_etc {
+    name: "init.target.rc",
+    src: "etc/init.target.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.xiaomi.rc",
+    src: "etc/init.xiaomi.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "ueventd.qcom.rc",
+    filename: "ueventd.rc",
+    src: "etc/ueventd.qcom.rc",
+    vendor: true,
 }
