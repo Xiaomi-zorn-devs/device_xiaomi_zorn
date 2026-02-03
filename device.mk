@@ -102,7 +102,11 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth.audio-impl
+    audio.bluetooth.default \
+    android.hardware.bluetooth.audio-impl \
+    lib_bt_aptx \
+    lib_bt_ble \
+    lib_bt_bundle
 
 PRODUCT_PACKAGES += \
     android.hardware.audio.common-V3-ndk.vendor
