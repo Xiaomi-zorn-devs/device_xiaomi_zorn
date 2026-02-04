@@ -1652,6 +1652,13 @@ vendor/etc/init/vendor.qti.diag_userdebug.rc
 vendor/lib64/libdiag.so
 vendor/lib64/vendor.qti.diaghal-V1-ndk.so
 vendor/lib64/vendor.qti.diaghal@1.0.so;MODULE_SUFFIX=_vendor
+
+#Display 
+system_ext/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so
+system_ext/lib64/vendor.xiaomi.hardware.displayfeature_aidl-V2-ndk.so
+system_ext/lib64/vendor.xiaomi.hw.touchfeature@1.0.so
+system_ext/lib64/vendor.xiaomi.hw.touchfeature-V1-ndk.so
+
 # Display Config
 vendor/etc/displayconfig/display_id_4630946416293825923.xml
 vendor/etc/displayconfig/display_id_4630946545580055171.xml
