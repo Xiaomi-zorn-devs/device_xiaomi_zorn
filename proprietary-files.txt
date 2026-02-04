@@ -110,7 +110,6 @@ odm/lib/rfsa/adsp/libmiphone_capture_mdbokeh_cdsp_skel.so
 odm/lib/rfsa/adsp/libmlawbpostproc_dsp_skel.so
 odm/lib/rfsa/adsp/libQnnHtpV75Skel.so
 odm/lib/rfsa/adsp/libQnnHtpV75.so
-odm/lib/rfsa/adsp/libQnnHtpV75Skel.so
 odm/lib/rfsa/adsp/libQnnSaver.so
 odm/lib/rfsa/adsp/libQnnSystem.so
 odm/lib/rfsa/adsp/libSnpeHtpV75Skel.so
