@@ -339,7 +339,6 @@ odm/etc/camera/model_front_mibokeh_video.dlc
 odm/lib64/camera/aon_front_1.pb
 odm/lib64/camera/aon_rear_2.pb
 odm/lib64/camera/bitmlconfig.bin
-odm/lib64/camera/com.qti.actuator.zorn_acc_ovx8000_gt9764v_wide_ii_actuator.so
 odm/lib64/camera/com.qti.actuator.zorn_ofilm_ovx8000_pd9302a_wide_i_actuator.so
 odm/lib64/camera/com.qti.eeprom.zorn_acc_ov08d10_p24c64e_ultra_i_eeprom.so
 odm/lib64/camera/com.qti.eeprom.zorn_acc_ov20b40_gt24p64e_front_eeprom.so
